@@ -3,12 +3,14 @@ import propTypes from "prop-types";
 import TodoList from "./TodoList.jsx";
 
 const TodoForm = () => {
-	const [inputValue, setInputValue] = useState("");
-	const [list, setList] = useState([]);
+	const [inputValue, setInputValue] = useState(null);
+	const [list, setList] = useState([""]);
 
 	const hundleSubmit = (e) => {
 		e.preventDefault();
 		setList([...list, inputValue]);
+		setInputValue("");
+		console.log(list);
 	};
 
 	return (
