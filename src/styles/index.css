@@ -1,8 +1,9 @@
+
 .wrap{
     border: 1pt solid black;
     border-radius: 3rem;
-    width: 15rem;
-    height: 30rem;
+    width: 17rem;
+    min-height: 30rem;
     margin: auto;
     margin-top: 2rem;
     text-align: center;
@@ -13,18 +14,48 @@
 .input-task{
     text-align: center;
     border-radius: 3rem;
+    width: 80%;
 }
-.button{
-    background-color: blue;
+.validation{
+    color: red;
+
+}
+.submit{
+
+    background-color: grey;
     color: white;
     border-radius: 0.7rem;
-    margin-top: 0.5rem;
+  margin-top: 3%;
+   
 }
 .list-tasks{
-    border: 1pt solid black;
+    
     width: 80%;
-    height: 60%;
+    min-height: 60%;
     border-radius: 1rem;
     margin: auto;
     margin-top: 3%;
+
+}
+.delete:hover{
+  cursor: pointer;
+}
+
+.tareaa{
+    display: flex;
+    width: 100%;
+    border-top: 1pt solid black;
+    justify-content: space-between;
+    padding: 3.5%;
+}
+.tareaa p{
+    height: auto;
+    max-width: 80%;
+    margin-bottom:  0%;
+}
+
+
+
+.delete:hover{
+    cursor: pointer;
 }

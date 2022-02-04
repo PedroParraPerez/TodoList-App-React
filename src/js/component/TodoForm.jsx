@@ -1,22 +1,31 @@
 import React, { useState } from "react";
 import propTypes from "prop-types";
-import TodoList from "./TodoList.jsx";
 
 const TodoForm = () => {
-	const [inputValue, setInputValue] = useState(null);
-	const [list, setList] = useState([""]);
+	const [inputValue, setInputValue] = useState("");
+	const [list, setList] = useState([]);
+	const [validation, setValidation] = useState(true);
 
-	const hundleSubmit = (e) => {
+	const Submit = (e) => {
 		e.preventDefault();
-		setList([...list, inputValue]);
-		setInputValue("");
-		console.log(list);
+		if (inputValue.trim() !== "") {
+			setList([...list, inputValue]);
+			setInputValue("");
+			setValidation(true);
+		} else {
+			setValidation(false);
+		}
+	};
+	const Delete = (index) => {
+		let tmp = list;
+		list.splice(index, 1);
+		setList([...tmp]);
 	};
 
 	return (
 		<>
 			<div className="wrap">
-				<form onSubmit={hundleSubmit}>
+				<form onSubmit={Submit}>
 					<h2 className="title">TodoList</h2>
 					<label htmlFor="input-task">
 						<strong>Task</strong>
@@ -26,13 +35,29 @@ const TodoForm = () => {
 						type="text"
 						className="input-task"
 						name="input-task"
-						placeholder="Add a task"
+						placeholder="Add a task..."
 						onChange={(event) => setInputValue(event.target.value)}
 						value={inputValue}
 					/>
+					{!validation && (
+						<div className="validation">
+							{" "}
+							<b>Add Task please</b>
+						</div>
+					)}
 					<input className="submit" type="submit" value="Submit" />
 				</form>
-				<TodoList list={list} />
+
+				<div className="list-tasks">
+					{list.map((item, i) => (
+						<div className="tareaa" key={i}>
+							<p>{item}</p>
+							<span className="delete" onClick={() => Delete(i)}>
+								🗑️
+							</span>
+						</div>
+					))}
+				</div>
 			</div>
 		</>
 	);
