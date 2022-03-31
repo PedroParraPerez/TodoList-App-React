@@ -27,7 +27,7 @@ const TodoForm = () => {
 			<div className="wrap">
 				<form onSubmit={Submit}>
 					<h2 className="title">TodoList</h2>
-					<label htmlFor="input-task">
+					<label className="label-task" htmlFor="input-task">
 						<strong>Task</strong>
 					</label>
 					<br />
