@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import "../styles/index.css";
 
 //import your own components
-import Main from "./component/main.jsx";
+import TodoForm from "./component/TodoForm.jsx";
 
 //render your react application
-ReactDOM.render(<Main />, document.querySelector("#app"));
+ReactDOM.render(<TodoForm />, document.querySelector("#app"));
